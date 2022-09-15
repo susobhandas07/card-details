@@ -10,41 +10,72 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
   <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
-
-  000
-
-  Cardholder Name
-  e.g. Jane Appleseed
-
-  Card Number
-  e.g. 1234 5678 9123 0000
-
-  Exp. Date (MM/YY)
-  MM
-  YY
-
-  CVC
-  e.g. 123
-
-  Confirm
+  <div id="half-back-div">
+    <img src="images/bg-main-desktop.png" alt="half-back" id="half-back-img">
+  </div>
+  <div class="card" id="card-front">
+    <img src="images/card-logo.svg" alt="logo" id="card-logo">
+    <section id="owner-details">
+      <table>
+        <tr>
+          <td id="card-no" colspan="2">0000  0000  0000  0000</td>
+        </tr>
+        <tr id="card-owner">
+          <td>Jane Appleseed</td>
+          <td>00/00</td>
+        </tr>
+      </table>      
+    </section>    
+  </div>
+    
+  <div class="card" id="card-back">
+    <section id="cvv">000</section>    
+  </div> 
+  <form onsubmit="return false"  class="" id="form">
+    <div class="form-group" id="name">
+      <label for="name" id="name-label">Cardholder Name</label>
+      <input type="text" name="name" class="" placeholder="e.g. Jane Appleseed" tabindex="0" required>
+      <section id="name-error"></section>
+    </div>
+    <div class="form-group" id="number">
+      <label for="number" id="number-label">Card Number</label>
+      <input type="text" name="number" class="number-input" maxlength="20" placeholder="e.g. 0000 0000 0000 0000" pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4} " required>
+      <section id="number-error"></section>
+    </div>
+    <div class="form-group" id="datecvc">
+      <div id="date">
+        <label for="date" id="date-label">Exp. Date (MM/YY)</label>
+        <input type="text" id="mdate" maxlength="2" class="" name="date" placeholder="MM" required>
+        <input type="text" id="ydate" class="" maxlength="2" name="date" placeholder="YY" required>
+        <section id="date-error"></section>
+      </div>
+      <div id="cvc">
+        <label for="cvc" id="cvv-label">CVC</label>
+        <input type="text" pattern="[0-9]{3}" name="cvc" class="" placeholder="e.g. 123" maxlength="3" required>
+        <section id="cvc-error"></section>
+      </div>
+    </div>
+    <input type="submit" value="Confirm" id="submit">
+  </form>
 
   <!-- Completed state start -->
-
-  Thank you!
-  We've added your card details
-  Continue
+  <div class="hidden" id="page2">
+    <img src="images/icon-complete.svg" alt="done-icon" id="tick-mark">
+    <h1>Thank you!</h1>
+    <p>We've added your card details</p>
+    <input type="submit" value="continue" id="continue">
+  </div>
   
-  <div class="attribution">
+  
+  <div class="attribution hidden">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
